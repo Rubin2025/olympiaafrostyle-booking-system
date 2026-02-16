@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
 import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/book" element={<Book />} />
       <Route path="/gallery" element={<Gallery />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }

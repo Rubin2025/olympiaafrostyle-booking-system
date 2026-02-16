@@ -1,4 +1,8 @@
 import hero from "../assets/hero.png";
+import braids from "../assets/braids.png";
+import dreads from "../assets/dreads.png";
+import cornrows from "../assets/cornrows.png";
+import men from "../assets/men.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -55,12 +59,29 @@ export default function Home() {
 <section style={servicesSection}>
   <h2 style={servicesTitle}>Our Styles</h2>
 
-  <div style={servicesGrid}>
-    <div style={card}>Braids</div>
-    <div style={card}>Dreadlocks</div>
-    <div style={card}>Cornrows</div>
-    <div style={card}>Men Styles</div>
+<div style={servicesGrid}>
+
+  <div style={card}>
+    <h3>Braids</h3>
+    <img src={braids} alt="Braids style" style={imgStyle}/>
   </div>
+
+  <div style={card}>
+    <h3>Dreadlocks</h3>
+    <img src={dreads} alt="Dreadlocks style" style={imgStyle}/>
+  </div>
+
+  <div style={card}>
+    <h3>Cornrows</h3>
+    <img src={cornrows} alt="Cornrows style" style={imgStyle}/>
+  </div>
+
+  <div style={card}>
+    <h3>Men Styles</h3>
+    <img src={men} alt="Men hairstyle" style={imgStyle}/>
+  </div>
+
+</div>
 </section>
 
     </div>
@@ -79,12 +100,12 @@ const nav = {
 };
 
 const menuDesktop = {
-  display: "flex",
+  display: window.innerWidth < 768 ? "none" : "flex",
   gap: 20
 };
 
 const hamburger = {
-  display: "none",
+  display: window.innerWidth < 768 ? "block" : "none",
   fontSize: 24,
   cursor: "pointer"
 };
@@ -103,7 +124,7 @@ const link = {
 };
 
 const heroStyle = {
-  height: "100vh",
+  minHeight: "100vh",
   backgroundImage: `url(${hero})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -148,11 +169,17 @@ const servicesGrid = {
 
 const card = {
   background: "#111a44",
-  padding: 30,
-  borderRadius: 12,
-  fontSize: "1.2rem",
-  fontWeight: "bold",
-  color: "white"
+  padding: 20,
+  borderRadius: 14,
+  color: "white",
+  textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+  gap: 15
 };
-
-
+const imgStyle = {
+  width: "100%",
+  height: 160,
+  objectFit: "cover",
+  borderRadius: 12
+};

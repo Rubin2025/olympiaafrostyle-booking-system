@@ -47,9 +47,7 @@ export default function Home() {
           Olympia AfroStyle
         </h1>
 
-        <p style={{ opacity: 0.9 }}>
-          Hair services for friends, family & community
-        </p>
+       <p>Look good. Feel confident. Stand out. Book or Contact us now to secure your slot.</p>
 
         <Link to="/book">
           <button style={button}>Book Appointment</button>

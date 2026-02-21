@@ -95,6 +95,8 @@ export default function Navbar() {
   font-size:26px;
   color:white;
   cursor:pointer;
+  position:relative;
+  z-index:2000;
 }
 
 

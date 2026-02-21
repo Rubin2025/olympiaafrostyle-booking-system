@@ -1,48 +1,30 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const isAdmin = localStorage.getItem("isAdmin") === "true";
+export default function Navbar() {
+  const [open,setOpen] = useState(false);
 
   return (
     <nav style={nav}>
 
       {/* LOGO */}
-      <div style={logo}>Afrostyle</div>
+      <h2 style={logo}>Olympia</h2>
+
 
       {/* LINKS */}
       <div style={{
         ...links,
-        ...(open ? mobileOpen : {})
+        ...(open ? mobileMenu : {})
       }}>
-        
-        <NavLink to="/" style={navLink} onClick={()=>setOpen(false)}>
-          Home
-        </NavLink>
-
-        <NavLink to="/book" style={navLink} onClick={()=>setOpen(false)}>
-          Book
-        </NavLink>
-
-        <NavLink to="/gallery" style={navLink} onClick={()=>setOpen(false)}>
-          Gallery
-        </NavLink>
-
-        <NavLink to="/contact" style={navLink} onClick={()=>setOpen(false)}>
-          Contact
-        </NavLink>
-
-        {isAdmin && (
-          <NavLink to="/admin" style={navLink} onClick={()=>setOpen(false)}>
-            Admin
-          </NavLink>
-        )}
-
+        <Link style={link} to="/" onClick={()=>setOpen(false)}>Home</Link>
+        <Link style={link} to="/gallery" onClick={()=>setOpen(false)}>Gallery</Link>
+        <Link style={link} to="/book" onClick={()=>setOpen(false)}>Book</Link>
+        <Link style={link} to="/contact" onClick={()=>setOpen(false)}>Contact</Link>
       </div>
 
+
       {/* HAMBURGER */}
-      <div style={menu} onClick={()=>setOpen(!open)}>
+      <div style={menuBtn} onClick={()=>setOpen(!open)}>
         ☰
       </div>
 
@@ -50,80 +32,72 @@ function Navbar() {
   );
 }
 
-export default Navbar;
 
 
 /* STYLES */
 
 const nav={
-  position:"sticky",
-  top:0,
-  zIndex:1000,
   display:"flex",
   justifyContent:"space-between",
   alignItems:"center",
-  padding:"15px 30px",
-  background:"#020617",
+  padding:"15px 25px",
+  background:"#f41fb4",
   color:"white",
-  boxShadow:"0 3px 15px rgba(0,0,0,0.4)"
-}
+  position:"sticky",
+  top:0,
+  zIndex:999
+};
 
 const logo={
-  fontWeight:"bold",
-  fontSize:"1.4rem",
-  letterSpacing:"1px"
-}
+  color:"#ec4899"
+};
 
 const links={
   display:"flex",
-  gap:"30px",
-  alignItems:"center"
-}
+  gap:25
+};
 
-const navLink = ({ isActive }) => ({
-  color: isActive ? "#ec4899" : "white",
+const link={
+  color:"white",
   textDecoration:"none",
-  fontWeight:"500",
-  position:"relative",
-  transition:"0.3s"
-})
+  fontWeight:"500"
+};
 
-const menu={
-  display:"none",
-  fontSize:"1.8rem",
-  cursor:"pointer"
-}
+const menuBtn={
+  fontSize:28,
+  cursor:"pointer",
+  display:"none"
+};
 
 
-/* MOBILE MENU STYLE */
 
-const mobileOpen={
-  position:"absolute",
-  top:"65px",
-  right:0,
-  flexDirection:"column",
-  background:"#020617",
-  width:"220px",
-  padding:"25px",
-  gap:"20px",
-  display:"flex",
-  boxShadow:"0 5px 20px rgba(0,0,0,0.5)"
-}
-
-
-/* MEDIA QUERY */
-
-if (typeof window !== "undefined") {
-  const style = document.createElement("style");
-  style.innerHTML = `
+/* MOBILE FIX */
+if(typeof window !== "undefined"){
+  const style=document.createElement("style");
+  style.innerHTML=`
     @media (max-width:768px){
-      nav div[style*="gap: 30px"]{
+      nav div[style*="gap: 25px"]{
         display:none !important;
       }
-      nav div[style*="font-size: 1.8rem"]{
+      nav div[style*="font-size: 28px"]{
         display:block !important;
       }
     }
   `;
   document.head.appendChild(style);
 }
+
+
+/* MOBILE DROPDOWN */
+const mobileMenu={
+  position:"absolute",
+  top:"65px",
+  right:0,
+  flexDirection:"column",
+  background:"#c01d6e",
+  width:"200px",
+  padding:"25px",
+  gap:"20px",
+  display:"flex",
+  boxShadow:"0 10px 30px rgba(225, 20, 109, 0.5)"
+};

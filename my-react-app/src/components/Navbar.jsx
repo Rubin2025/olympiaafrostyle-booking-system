@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open,setOpen] = useState(false);
 
   return (
     <nav className="nav">
@@ -21,86 +21,78 @@ export default function Navbar() {
       </div>
 
 
-      {/* CSS */}
-      <style>{`
+<style>{`
 
-        .nav{
-          height:60px;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          padding:0 22px;
-          background:#020617;
-          position:sticky;
-          top:0;
-          z-index:1000;
-        }
+.nav{
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  background:#020617;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-        .logo{
-          color:#ec4899;
-          font-size:1.2rem;
-          font-weight:bold;
-        }
+.logo{
+  color:#ec4899;
+  font-size:1.2rem;
+}
 
-        .links{
-          display:flex;
-          gap:20px;
-          align-items:center;
-        }
+.links{
+  display:flex;
+  gap:20px;
+}
 
-        .links a{
-          color:#e5e7eb;
-          text-decoration:none;
-          font-size:0.95rem;
-          font-weight:500;
-          transition:.25s;
-        }
+.links a{
+  color:#e5e7eb;
+  text-decoration:none;
+}
 
-        .links a.active{
-          color:#ec4899;
-        }
+.links a.active{
+  color:#ec4899;
+}
 
-        .book{
-          background:#ec4899;
-          padding:6px 14px;
-          border-radius:8px;
-          color:white !important;
-          font-weight:600;
-        }
+.book{
+  background:#ec4899;
+  padding:6px 14px;
+  border-radius:8px;
+  color:white !important;
+}
 
-        .menu{
-          display:none;
-          font-size:26px;
-          color:white;
-          cursor:pointer;
-        }
+.menu{
+  display:none;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+}
 
 
-        /* MOBILE */
-        @media (max-width:768px){
+/* MOBILE */
+@media (max-width:768px){
 
-          .menu{
-            display:block;
-          }
+  .menu{
+    display:block;
+  }
 
-          .links{
-            position:absolute;
-            top:60px;
-            right:0;
-            background:#020617;
-            flex-direction:column;
-            width:200px;
-            padding:20px;
-            display:none;
-            box-shadow:0 10px 30px rgba(0,0,0,0.5);
-          }
+  .links{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:#020617;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    display:none;
+  }
 
-          .links.show{
-            display:flex;
-          }
-        }
+  .links.show{
+    display:flex;
+  }
+}
 
-      `}</style>
+`}</style>
 
     </nav>
   );

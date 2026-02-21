@@ -19,9 +19,9 @@ export default function Navbar() {
       </div>
 
       {/* MENU BUTTON */}
-      <div className="menu" onClick={()=>setOpen(!open)}>
+      <button className="menu" onClick={()=>setOpen(o=>!o)}>
         ☰
-      </div>
+      </button>
 
 
 <style>{`
@@ -97,6 +97,9 @@ export default function Navbar() {
   cursor:pointer;
   position:relative;
   z-index:2000;
+  border:none;
+  background:none;
+  outline:none;
 }
 
 

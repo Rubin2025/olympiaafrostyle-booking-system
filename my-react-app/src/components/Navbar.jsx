@@ -5,23 +5,26 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="nav">
+    <>
+      <nav className="nav">
 
-      {/* LOGO */}
-      <h2 className="logo">Olympia</h2>
+        {/* LOGO */}
+        <h2 className="logo">Olympia</h2>
 
-      {/* LINKS */}
-      <div className={`links ${open ? "show" : ""}`}>
-        <NavLink to="/" onClick={()=>setOpen(false)}>Home</NavLink>
-        <NavLink to="/gallery" onClick={()=>setOpen(false)}>Gallery</NavLink>
-        <NavLink to="/contact" onClick={()=>setOpen(false)}>Contact</NavLink>
-        <NavLink to="/book" className="book" onClick={()=>setOpen(false)}>Book</NavLink>
-      </div>
+        {/* LINKS */}
+        <div className={`links ${open ? "show" : ""}`}>
+          <NavLink to="/" onClick={()=>setOpen(false)}>Home</NavLink>
+          <NavLink to="/gallery" onClick={()=>setOpen(false)}>Gallery</NavLink>
+          <NavLink to="/contact" onClick={()=>setOpen(false)}>Contact</NavLink>
+          <NavLink to="/book" className="book" onClick={()=>setOpen(false)}>Book</NavLink>
+        </div>
 
-      {/* MENU BUTTON */}
-      <button className="menu" onClick={()=>setOpen(o=>!o)}>
-        ☰
-      </button>
+        {/* MENU BUTTON */}
+        <button className="menu" onClick={()=>setOpen(o=>!o)}>
+          ☰
+        </button>
+
+      </nav>
 
 
 <style>{`
@@ -124,6 +127,6 @@ export default function Navbar() {
 
 `}</style>
 
-    </nav>
+    </>
   );
 }

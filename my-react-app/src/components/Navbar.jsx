@@ -9,7 +9,7 @@ function Navbar() {
     <nav style={nav}>
 
       {/* LOGO */}
-      <div style={logo}>Olympia</div>
+      <div style={logo}>Afrostyle</div>
 
       {/* LINKS */}
       <div style={{

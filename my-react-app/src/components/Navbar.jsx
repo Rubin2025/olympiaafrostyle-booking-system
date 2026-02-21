@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [open,setOpen] = useState(false);
@@ -16,10 +16,24 @@ export default function Navbar() {
         ...links,
         ...(open ? mobileMenu : {})
       }}>
-        <Link style={link} to="/" onClick={()=>setOpen(false)}>Home</Link>
-        <Link style={link} to="/gallery" onClick={()=>setOpen(false)}>Gallery</Link>
-        <Link style={link} to="/book" onClick={()=>setOpen(false)}>Book</Link>
-        <Link style={link} to="/contact" onClick={()=>setOpen(false)}>Contact</Link>
+
+        <NavLink to="/" style={navLink} onClick={()=>setOpen(false)}>
+          Home
+        </NavLink>
+
+        <NavLink to="/gallery" style={navLink} onClick={()=>setOpen(false)}>
+          Gallery
+        </NavLink>
+
+        <NavLink to="/contact" style={navLink} onClick={()=>setOpen(false)}>
+          Contact
+        </NavLink>
+
+        {/* BOOK BUTTON */}
+        <NavLink to="/book" style={bookBtn} onClick={()=>setOpen(false)}>
+          Book Appointment
+        </NavLink>
+
       </div>
 
 
@@ -40,38 +54,62 @@ const nav={
   display:"flex",
   justifyContent:"space-between",
   alignItems:"center",
-  padding:"15px 25px",
-  background:"#f41fb4",
-  color:"white",
+  padding:"15px 30px",
+  background:"#020617",
   position:"sticky",
   top:0,
   zIndex:999
 };
 
 const logo={
-  color:"#ec4899"
+  color:"#ec4899",
+  fontWeight:"bold"
 };
 
 const links={
   display:"flex",
-  gap:25
+  gap:25,
+  alignItems:"center"
 };
 
-const link={
-  color:"white",
+
+/* NORMAL LINKS */
+
+const navLink = ({isActive}) => ({
+  color: isActive ? "#ec4899" : "#e5e7eb",
   textDecoration:"none",
-  fontWeight:"500"
+  fontWeight:"500",
+  transition:"0.3s"
+});
+
+
+/* BOOK BUTTON LINK */
+
+const bookBtn={
+  background:"#ec4899",
+  color:"white",
+  padding:"10px 18px",
+  borderRadius:10,
+  textDecoration:"none",
+  fontWeight:"bold",
+  boxShadow:"0 0 15px rgba(236,72,153,0.6)",
+  transition:"0.3s"
 };
+
+
+/* HAMBURGER */
 
 const menuBtn={
   fontSize:28,
   cursor:"pointer",
-  display:"none"
+  display:"none",
+  color:"white"
 };
 
 
 
-/* MOBILE FIX */
+/* MOBILE STYLE */
+
 if(typeof window !== "undefined"){
   const style=document.createElement("style");
   style.innerHTML=`
@@ -89,15 +127,16 @@ if(typeof window !== "undefined"){
 
 
 /* MOBILE DROPDOWN */
+
 const mobileMenu={
   position:"absolute",
-  top:"65px",
+  top:"70px",
   right:0,
   flexDirection:"column",
-  background:"#c01d6e",
-  width:"200px",
+  background:"#020617",
+  width:"230px",
   padding:"25px",
   gap:"20px",
   display:"flex",
-  boxShadow:"0 10px 30px rgba(225, 20, 109, 0.5)"
+  boxShadow:"0 10px 30px rgba(0,0,0,0.5)"
 };

@@ -107,7 +107,8 @@ const heroStyle={
 const overlay={
   position:"absolute",
   inset:0,
-  background:"rgba(0,0,0,0.45)"
+  background:"rgba(0,0,0,0.45)",
+  pointerEvents:"none"   // ← ONLY LINE ADDED (fix for phone click issue)
 };
 
 const heroContent={

@@ -31,7 +31,7 @@ export default function Navbar() {
 
         {/* BOOK BUTTON */}
         <NavLink to="/book" style={bookBtn} onClick={()=>setOpen(false)}>
-          Book Appointment
+          Book
         </NavLink>
 
       </div>
@@ -54,7 +54,7 @@ const nav={
   display:"flex",
   justifyContent:"space-between",
   alignItems:"center",
-  padding:"15px 30px",
+  padding:"10px 22px",   // 👈 reduced height
   background:"#020617",
   position:"sticky",
   top:0,
@@ -63,61 +63,62 @@ const nav={
 
 const logo={
   color:"#ec4899",
-  fontWeight:"bold"
+  fontWeight:"bold",
+  fontSize:"1.2rem" // smaller logo
 };
 
 const links={
   display:"flex",
-  gap:25,
+  gap:18,
   alignItems:"center"
 };
 
 
-/* NORMAL LINKS */
+/* LINKS */
 
 const navLink = ({isActive}) => ({
   color: isActive ? "#ec4899" : "#e5e7eb",
   textDecoration:"none",
   fontWeight:"500",
-  transition:"0.3s"
+  fontSize:"0.95rem",
+  transition:"0.25s"
 });
 
 
-/* BOOK BUTTON LINK */
+/* BOOK BUTTON */
 
 const bookBtn={
   background:"#ec4899",
   color:"white",
-  padding:"10px 18px",
-  borderRadius:10,
+  padding:"6px 14px",
+  borderRadius:8,
   textDecoration:"none",
-  fontWeight:"bold",
-  boxShadow:"0 0 15px rgba(236,72,153,0.6)",
-  transition:"0.3s"
+  fontWeight:"600",
+  fontSize:"0.85rem",
+  boxShadow:"0 0 10px rgba(236,72,153,0.5)"
 };
 
 
-/* HAMBURGER */
+/* MENU ICON */
 
 const menuBtn={
-  fontSize:28,
+  fontSize:24,
   cursor:"pointer",
   display:"none",
   color:"white"
 };
 
 
-
-/* MOBILE STYLE */
+/* MOBILE */
 
 if(typeof window !== "undefined"){
   const style=document.createElement("style");
   style.innerHTML=`
     @media (max-width:768px){
-      nav div[style*="gap: 25px"]{
+      nav div[style*="gap: 18px"]{
         display:none !important;
       }
-      nav div[style*="font-size: 28px"]{
+      nav div[style*="font-size: 24px"]{
         display:block !important;
       }
     }
@@ -130,13 +131,13 @@ if(typeof window !== "undefined"){
 
 const mobileMenu={
   position:"absolute",
-  top:"70px",
+  top:"55px",
   right:0,
   flexDirection:"column",
   background:"#020617",
-  width:"230px",
-  padding:"25px",
-  gap:"20px",
+  width:"190px",
+  padding:"20px",
+  gap:"18px",
   display:"flex",
   boxShadow:"0 10px 30px rgba(0,0,0,0.5)"
 };
